@@ -13,7 +13,7 @@ jobs:
 
       - run: docker --version
       - run: docker build -t udagram-frontend .
-      - run: docker tag udagram-frontend xxyyzz87/udagram-frontend:latest
+      - run: docker tag udagram-frontend xxyyzz87/udagram-frontend:$(git rev-parse --short HEAD)
       - run: |
           echo "$DOCKER_PASSWORD" | docker login -u $DOCKER_USERNAME --password-stdin
           docker push xxyyzz87/udagram-frontend
